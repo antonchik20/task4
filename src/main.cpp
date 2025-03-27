@@ -13,7 +13,7 @@ int main() {
         return 1;
     }
 
-    auto [mst, totalWeight] = kruskal_tree_algorithm(points);
+    auto mst = kruskal_tree_algorithm(points);
     bool write_success = file_write(out_filename, mst);
 
     if (!write_success) {

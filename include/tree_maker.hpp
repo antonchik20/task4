@@ -43,7 +43,7 @@ public:
     bool unite_sets(int u, int v);
 };
 
-std::pair<std::vector<Edge>, double> kruskal_tree_algorithm(std::vector<Point>& points);
+std::vector<Edge> kruskal_tree_algorithm(std::vector<Point>& points);
 
 std::vector<Point> file_read(std::string& filename);
 bool file_write(std::string& filename, const std::vector<Edge>& mst);

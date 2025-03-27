@@ -72,7 +72,7 @@ bool Union_set::unite_sets(int u, int v) {
     return true;
 }
 
-std::pair<std::vector<Edge>, double> kruskal_tree_algorithm(std::vector<Point>& points) {
+std::vector<Edge> kruskal_tree_algorithm(std::vector<Point>& points) {
     int n = points.size();
     std::vector<Edge> edges;
 
@@ -88,12 +88,10 @@ std::pair<std::vector<Edge>, double> kruskal_tree_algorithm(std::vector<Point>& 
     Union_set u_set(n);
 
     std::vector<Edge> mst;
-    double totalWeight = 0.0;
 
     for (Edge& edge : edges) {
         if(u_set.unite_sets(edge.get_point_u(), edge.get_point_v())) {
             mst.push_back(edge);
-            totalWeight += edge.get_weight();
 
             if (mst.size() == n - 1) {
                 break;
@@ -102,7 +100,7 @@ std::pair<std::vector<Edge>, double> kruskal_tree_algorithm(std::vector<Point>& 
         }
     }
 
-    return {mst, totalWeight};
+    return mst;
 }
 
 std::vector<Point> file_read(std::string& filename) {
